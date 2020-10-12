@@ -6,40 +6,48 @@ $(document).ready(function(){
   let canvas = document.getElementById("game");
   let context = canvas.getContext("2d");
   document.addEventListener("keydown", move);
+  resetGame();
   setInterval(playGame, 1000/15);
-  
-  let x_vel = 0;
-  let y_vel = 0;
-  let x_pos = 10;
-  let y_pos = 10;
-  let apple_x = 15;
-  let apple_y = 15;
-  let snake = [];
-  let length = 5;
+  function resetGame(){
+    var game_state = 0;
+    var x_vel = 0;
+    var y_vel = 0;
+    var x_pos = 10;
+    var y_pos = 10;
+    var apple_x = 15;
+    var apple_y = 15;
+    var snake = [];
+    var length = 5;
+  }
   
   function playGame(){
-    x_pos += x_vel;
-    y_pos += y_vel;
-    context.fillStyle = "black";                          //create game board
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = "white";
-    for(var i = 0; i < snake.length; i++){
-      context.fillRect(20*snake[i].x, 20*snake[i].y, 18, 18);
-      if(snake[i].x == x_pos && snake[i].y == y_pos){
-        length = 5;
+    if (game_state == 0){
+      
+    }
+    else{
+      x_pos += x_vel;
+      y_pos += y_vel;
+      context.fillStyle = "black";                          //create game board
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      context.fillStyle = "white";
+      for(var i = 0; i < snake.length; i++){
+        context.fillRect(snake[i].x*20, snake[i].y*20, 18, 18);
+        if(snake[i].x == x_pos && snake[i].y == y_pos){     //snake hits itself
+          resetGame();
+        }
       }
+      snake.push({x:x_pos, y:y_pos});
+      while(snake.length > length){
+       snake.shift(); 
+      }
+      if(apple_x == x_pos && apple_y == y_pos){            //apple gets eaten
+        tail++;
+        apple_x = Math.floor(Math.random()*20);
+        apple_y = Math.floor(Math.random()*20);
+      }
+      context.fillStyle = "red";                            //create apple
+      context.fillRect(20*apple_x, 20*apple_y, 18, 18);
     }
-    snake.push({x:x_pos, y:y_pos});
-    while(snake.length > length){
-     snake.shift(); 
-    }
-    if(apple_x == x_pos && apple_y == y_pos){
-      tail++;
-      apple_x = Math.floor(Math.random()*20);
-      apple_y = Math.floor(Math.random()*20);
-    }
-    context.fillStyle = "red";                            //create apple
-    context.fillRect(20*apple_x, 20*apple_y, 18, 18);
   }
   
   function move(evt){
