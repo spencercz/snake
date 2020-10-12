@@ -6,18 +6,26 @@ $(document).ready(function(){
   let canvas = document.getElementById("game");
   let context = canvas.getContext("2d");
   document.addEventListener("keydown", move);
-  resetGame();
   setInterval(playGame, 1000/15);
+  var game_state = 1;
+  var x_vel = 0;
+  var y_vel = 0;
+  var x_pos = 10;
+  var y_pos = 10;
+  var apple_x = 15;
+  var apple_y = 15;
+  var snake = [];
+  var length = 5;
   function resetGame(){
-    var game_state = 1;
-    var x_vel = 0;
-    var y_vel = 0;
-    var x_pos = 10;
-    var y_pos = 10;
-    var apple_x = 15;
-    var apple_y = 15;
-    var snake = [];
-    var length = 5;
+    game_state = 0;
+    x_vel = 0;
+    y_vel = 0;
+    x_pos = 10;
+    y_pos = 10;
+    apple_x = 15;
+    apple_y = 15;
+    snake = [];
+    length = 5;
   }
   
   function playGame(){
