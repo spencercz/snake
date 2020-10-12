@@ -1,6 +1,7 @@
 $(document).ready(function(){
+  var name = "Guest";
   $("#setname").click(()=>{
-    let name = $("#name").val();
+    name = $("#name").val();
     $("#yourname").text(`Your name: ${name}`);
   });
   let canvas = document.getElementById("game");
