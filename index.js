@@ -43,7 +43,7 @@ $(document).ready(function(){
      snake.shift(); 
     }
     if(apple_x == x_pos && apple_y == y_pos){            //apple gets eaten
-      tail++;
+      length++;
       apple_x = Math.floor(Math.random()*20);
       apple_y = Math.floor(Math.random()*20);
     }
