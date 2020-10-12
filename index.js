@@ -7,6 +7,7 @@ $(document).ready(function(){
   let context = canvas.getContext("2d");
   document.addEventListener("keydown", move);
   setInterval(playGame, 1000/15);
+  
   let x_vel = 0;
   let y_vel = 0;
   let x_pos = 10;
@@ -15,15 +16,16 @@ $(document).ready(function(){
   let apple_y = 15;
   let snake = [];
   let length = 5;
+  
   function playGame(){
     x_pos += x_vel;
     y_pos += y_vel;
     context.fillStyle = "black";                          //create game board
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "white";
-    for(var i = 0; i < trail.length; i++){
-      context.fillRect(20*trail[i].x, 20*trail[i].y, 18, 18);
-      if(trail[i].x == x_pos && trail[i].y == y_pos){
+    for(var i = 0; i < snake.length; i++){
+      context.fillRect(20*snake[i].x, 20*snake[i].y, 18, 18);
+      if(snake[i].x == x_pos && snake[i].y == y_pos){
         length = 5;
       }
     }
