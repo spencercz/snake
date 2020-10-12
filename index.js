@@ -44,21 +44,29 @@ $(document).ready(function(){
   
   function move(evt){
     switch(evt.keyCode){
-      case 37: //left movement
-        x_vel = -1;
-        y_vel = 0;
+      case 37:                                            //left movement
+        if(x_vel != 1){
+          x_vel = -1;
+          y_vel = 0;
+        }
         break;
-      case 38: //up movement
-        x_vel = 0;
-        y_vel = -1;
+      case 38:                                            //up movement
+        if(y_vel != 1){
+          x_vel = 0;
+          y_vel = -1;
+        }
         break;
-      case 39: //right movement
-        x_vel = 1;
-        y_vel = 0;
+      case 39:                                            //right movement
+        if(x_vel != -1){
+          x_vel = 1;
+          y_vel = 0;
+        }
         break;
       case 40: //down movement
-        x_vel = 0;
-        y_vel = 1;
+        if(y_vel != -1){
+          x_vel = 0;
+          y_vel = 1;
+        }
         break;
     }
   }
