@@ -3,5 +3,5 @@ $(document).ready(function(){
   $("#setname").click(()=>{
     name = document.getElementById("name").value;
     document.getElementById("yourname").innerText = `<h2>Your name: ${name}</h2>`;
-  }
+  });
 });
