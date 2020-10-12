@@ -21,10 +21,7 @@ $(document).ready(function(){
   }
   
   function playGame(){
-    if (game_state == 0){
-      
-    }
-    else{
+    if (game_state == 1){
       x_pos += x_vel;
       y_pos += y_vel;
       context.fillStyle = "black";                          //create game board
