@@ -33,11 +33,15 @@ $(document).ready(function(){
     context.fillStyle = "black";                          //create game board
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "white";
+    
     for(var i = 0; i < snake.length; i++){
       context.fillRect(snake[i].x*20, snake[i].y*20, 18, 18);
-      if(snake[i].x == x_pos && snake[i].y == y_pos){     //snake hits itself
+      if((snake[i].x == x_pos && snake[i].y == y_pos) && (snake.length > 5)){     //snake hits itself
         resetGame();
       }
+    }
+    if(x_pos < 0 || x_pos > 19 || y_pos < 0 || y_pos > 19){
+      resetGame();                                        //snake hits border
     }
     snake.push({x:x_pos, y:y_pos});
     while(snake.length > length){
