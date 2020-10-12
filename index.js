@@ -58,24 +58,28 @@ $(document).ready(function(){
   function move(evt){
     switch(evt.keyCode){
       case 37:                                            //left movement
+      case 65:
         if(x_vel != 1){
           x_vel = -1;
           y_vel = 0;
         }
         break;
       case 38:                                            //up movement
+      case 87:
         if(y_vel != 1){
           x_vel = 0;
           y_vel = -1;
         }
         break;
       case 39:                                            //right movement
+      case 68:
         if(x_vel != -1){
           x_vel = 1;
           y_vel = 0;
         }
         break;
       case 40:                                            //down movement
+      case 83:
         if(y_vel != -1){
           x_vel = 0;
           y_vel = 1;
