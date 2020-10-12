@@ -5,11 +5,12 @@ $(document).ready(function(){
   });
   let canvas = document.getElementById("game");
   let context = canvas.getContext("2d");
+  var game_state = 1;
   document.addEventListener("keydown", move);
   resetGame();
   setInterval(playGame, 1000/15);
   function resetGame(){
-    var game_state = 0;
+    game_state = 0;
     var x_vel = 0;
     var y_vel = 0;
     var x_pos = 10;
