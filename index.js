@@ -62,7 +62,7 @@ $(document).ready(function(){
           y_vel = 0;
         }
         break;
-      case 40: //down movement
+      case 40:                                            //down movement
         if(y_vel != -1){
           x_vel = 0;
           y_vel = 1;
