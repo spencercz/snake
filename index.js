@@ -16,7 +16,7 @@ $(document).ready(function(){
   var snake = [];
   var length = 5;
   function resetGame(){
-    alert(`Game over! Your score: ${length-5}`);
+    alert(`Game over! Your score: ${length}`);
     x_vel = 0;
     y_vel = 0;
     x_pos = 10;
